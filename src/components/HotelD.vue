@@ -21,7 +21,7 @@ export default {
 
     let self = this;
     axios
-      .get("https://hotel-api-s.herokuapp.com/hotel/description/" + this.hotelname)
+      .get("https://hotel-appi-s.herokuapp.com/hotel/description/" + this.hotelname)
       .then((result) => {
         self.price_general = result.data.price_general;
         self.quantity_room = result.data.quantity_room;
