@@ -1,14 +1,13 @@
 <template>
   <div id="app">
     <div class="header">
-      <h1>Hotel Price {{is_auth}}</h1>
+      <h1>Hotel Price</h1>
       <nav>
         <button v-on:click="init" v-if="is_auth">Inicio</button>
         <button v-on:click="iniciar_sesion" v-if="is_auth">Iniciar Sesion</button>
         <button v-on:click="addHotel" v-if="is_auth">Agregar</button>
         <button v-on:click="getBalance" v-if="is_auth">Estado</button>
-        <!-- <button v-if="is_auth">Transacción</button> -->
-        <button v-if="is_auth">Cerrar Sesión</button>
+        <button v-on:click="cerrar_sesion">Cerrar Sesión</button>
       </nav>
     </div>
     <div class="main-component">
@@ -37,11 +36,14 @@ export default {
       }
     },
     getBalance: function () {
-      if (this.$route.name != "hotel_description") {
+      if (this.$route.name != "hotel_description" &&  localStorage.getItem("current_hotelname") != "") {
         let hotelname = localStorage.getItem("current_hotelname");
         this.$router.push({
           name: "hotel_description",
           params: { hotelname: hotelname }})
+      }
+      if(localStorage.getItem("current_hotelname") == ""){
+        this.$router.push({name: "hotel_not_login"})
       }
     },
     addHotel: function () {
@@ -52,19 +54,23 @@ export default {
       }
     },
     iniciar_sesion: function () {
-      localStorage.setItem("isAuth", false);
       if (this.$route.name != "hotel_login") {
         let hotelname = localStorage.getItem("current_hotelname");
         this.$router.push({
           name: "hotel_login"})
       }
     },
+    cerrar_sesion: function () {
+      if(localStorage.getItem("current_hotelname") != ""){
+        this.$router.push({name:"hotel_login_close"})
+        localStorage.setItem("current_hotelname", "");
+      }
+    },
   },
   beforeCreate: function () {
-    // localStorage.setItem("current_hotelname", "El lago");
     localStorage.setItem("isAuth", true);
+    localStorage.setItem("current_hotelname", "");
 
-    // this.$router.push({name:"hotel",params:{hotelname:'Caminos'}})
     this.$router.push({name:"home"})
   },
 };

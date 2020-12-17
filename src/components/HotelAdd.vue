@@ -36,11 +36,9 @@
         </div>
         <div>
           <button type="submit">Agregar</button>
+          <h1>{{ salida }}</h1>
         </div>
       </form>
-    </div>
-    <div>
-      <h1>{{ salida }}</h1>
     </div>
   </div>
 </template>
@@ -90,6 +88,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#HotelAdd h1{
+    font-size: 30px;
+  color: #283747;
 }
 #HotelAdd h2 {
   font-size: 50px;

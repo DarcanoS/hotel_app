@@ -20,11 +20,9 @@
         </div>
         <div>
           <button type="submit">Ingresar</button>
+          <h1>{{ salida }}</h1>
         </div>
       </form>
-    </div>
-    <div>
-      <h1>{{ salida }}, Usuario: {{usuario_login.hotelname}} Contraseña: {{usuario_login.password}}</h1>
     </div>
   </div>
 </template>
@@ -32,7 +30,7 @@
 <script>
 import axios from "axios";
 export default {
-  name: "HotelAdd",
+  name: "HotelLogin",
   data: function () {
     return {
       usuario_login: {
@@ -40,7 +38,6 @@ export default {
         password: "",
       },
       salida: "Esperando Inicio de Sesión",
-      //   hotelname: "none",
     };
   },
 
@@ -53,7 +50,6 @@ export default {
           this.salida =
             "Sesion inciada";
             localStorage.setItem("current_hotelname", this.usuario_login.hotelname);
-            localStorage.setItem("isAuth", true);
         })
         .catch((error) => {
           this.salida = "Contraseña o Usuario incorrecto";
@@ -67,18 +63,22 @@ export default {
 </script>
 
 <style>
-#HotelAdd {
+#HotelLogin {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#HotelAdd h2 {
+#HotelLogin h1{
+    font-size: 30px;
+  color: #283747;
+}
+#HotelLogin h2 {
   font-size: 50px;
   color: #283747;
 }
-#HotelAdd span {
+#HotelLogin span {
   color: crimson;
   font-weight: bold;
 }
