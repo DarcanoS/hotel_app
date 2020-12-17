@@ -1,9 +1,10 @@
 import vueRouter from 'vue-router'
-import Hotel from './components/Hotel'
 import HotelD from './components/HotelD'
 import Home from './components/Home'
 import HotelAdd from './components/HotelAdd'
 import HotelLogin from './components/HotelLogin'
+import HotelNotLogin from './components/HotelNotLogin'
+import HotelClose from './components/HotelClose'
 import App from './App'
 
 const router = new vueRouter({
@@ -14,11 +15,6 @@ const router = new vueRouter({
             path: '/',
             name: "root",
             component: App
-        },
-        {
-            path: '/hotel/:hotelname',
-            name: "hotel",
-            component: Hotel
         },
         {
             path: '/hotel/description/:hotelname',
@@ -39,6 +35,16 @@ const router = new vueRouter({
             path: '/hotel/login',
             name: "hotel_login",
             component: HotelLogin
+        },
+        {
+            path: '/hotel/notlogin',
+            name: "hotel_not_login",
+            component: HotelNotLogin
+        },
+        {
+            path: '/hotel/loginClose',
+            name: "hotel_login_close",
+            component: HotelClose
         },
     ]
 })

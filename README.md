@@ -8,6 +8,12 @@
 # install dependencies
 npm install
 
+# install requeriments
+npm install express serve-static --save
+npm install vue bootstrap-vue bootstrap
+npm install jquery
+npm install popper.js
+
 # serve with hot reload at localhost:8080
 npm run dev
 

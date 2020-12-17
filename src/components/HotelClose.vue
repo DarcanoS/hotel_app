@@ -1,34 +1,36 @@
 <template>
-  <div id="Home">
-    <h2>¡Bienvenido!</h2>
+  <div id="HotelClose">
+    <h2>!Se ha cerrado la sesión!</h2>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 export default {
-  name: "Home",
+  name: "HotelClose",
   data: function () {
     return {};
   },
 
-  created: function () {},
+  created: function () {
+    // this.hotelname = this.$route.params.hotelname;
+  },
 };
 </script>
 
 <style>
-#Home {
+#HotelClose {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#Home h2 {
+#HotelClose h2 {
   font-size: 50px;
   color: #283747;
 }
-#Home span {
+#HotelClose span {
   color: crimson;
   font-weight: bold;
 }

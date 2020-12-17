@@ -1,7 +1,12 @@
 <template>
   <div id="HotelD">
-    <h2>Hotel: <span> {{hotelname}}</span> </h2>
-    <h2> Valor general: <span> {{price_general}} COP </span>, con <span> {{quantity_room}} </span> habitaciones </h2>
+    <h2>
+      Hotel: <span> {{ hotelname }}</span>
+    </h2>
+    <h2>
+      Valor general: <span> {{ price_general }} COP </span>, con
+      <span> {{ quantity_room }} </span> habitaciones
+    </h2>
   </div>
 </template>
 
@@ -21,7 +26,9 @@ export default {
 
     let self = this;
     axios
-      .get("https://hotel-appi-s.herokuapp.com/hotel/description/" + this.hotelname)
+      .get(
+        "https://hotel-appi-s.herokuapp.com/hotel/description/" + this.hotelname
+      )
       .then((result) => {
         self.price_general = result.data.price_general;
         self.quantity_room = result.data.quantity_room;
