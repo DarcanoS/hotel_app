@@ -1,38 +1,44 @@
 <template>
-  <div id="HotelLogin">
-    <div>
+  <div id="HotelLogin" class="input-group input-group-sm mb-3">
+    
       <form v-on:submit.prevent="login_usuario">
-        <div>
-          <label>Ingrese nombre de Hotel</label>
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Ingrese nombre de Hotel</span>
           <input
             type="text"
+            class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
             v-model="usuario_login.hotelname"
             placeholder="Usuario"
           />
         </div>
-        <div>
-          <label>Ingrese la contraseña</label>
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Ingrese la contraseña</span>
           <input
             type="password"
+            class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
             v-model="usuario_login.password"
             placeholder="Contreaseña"
           />
         </div>
-        <div>
-          <button type="submit">Ingresar</button>
+        <div align="center">
+          <!-- <button type="submit">Ingresar</button> -->
+          <button type="submit"  class="btn btn-outline-primary">Ingresar</button>
         </div>
+
+      <div class="alert-warning" role="alert">
+        <p><h1 class="alert-heading">{{ salida }} </h1>
+      </div>
+
       </form>
     </div>
-    <div>
-      <h1>{{ salida }}, Usuario: {{usuario_login.hotelname}} Contraseña: {{usuario_login.password}}</h1>
-    </div>
-  </div>
+    
+  
 </template>
 
 <script>
 import axios from "axios";
 export default {
-  name: "HotelAdd",
+  name: "HotelLogin",
   data: function () {
     return {
       usuario_login: {
@@ -67,19 +73,19 @@ export default {
 </script>
 
 <style>
-#HotelAdd {
+#HotelLogin {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#HotelAdd h2 {
-  font-size: 50px;
+#HotelLogin h1 {
+   font-size: 30px;
   color: #283747;
 }
-#HotelAdd span {
-  color: crimson;
+#HotelLogin span {
+  color: rgb(0, 0, 0);
   font-weight: bold;
 }
 </style>

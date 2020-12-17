@@ -3,44 +3,67 @@
     <div>
       <form v-on:submit.prevent="in_usuario">
         <div>
-          <label>Ingrese nombre de Usuario</label>
-          <input
+
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Hotel</span>
+            </div>
+              <input
             type="text"
             v-model="usuario_in.hotelname"
             placeholder="Usuario"
+            class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
           />
-        </div>
-        <div>
-          <label>Ingrese la contraseña</label>
-          <input
+            </div>
+
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Contraseña</span>
+            </div>
+              <input
             type="password"
             v-model="usuario_in.password"
             placeholder="Contreaseña"
+            class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
           />
-        </div>
-        <div>
-          <label>Ingrese la ubicación</label>
-          <input
+            </div>
+
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Ubicación</span>
+            </div>
+              <input
             type="text"
             v-model="usuario_in.location"
             placeholder="Ubicación"
+            class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
           />
+            </div>
+
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Precio general</span>
+              <span class="input-group-text">$</span>
+            </div>
+              <input type="number" v-model="usuario_in.price_general" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
+            </div>
+
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Habitaciones</span>
+            </div>
+              <input type="number" v-model="usuario_in.quantity_room" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
+            </div>
+
         </div>
         <div>
-          <label>Ingrese precio general</label>
-          <input type="number" v-model="usuario_in.price_general" />
-        </div>
-        <div>
-          <label>Ingrese la cantidad de cuartos</label>
-          <input type="number" v-model="usuario_in.quantity_room" />
-        </div>
-        <div>
-          <button type="submit">Agregar</button>
+          
+          <button type="submit" class="btn btn-outline-success">Agregar</button>
         </div>
       </form>
     </div>
     <div>
-      <h1>{{ salida }}</h1>
+      <h3>{{ salida }}</h3>
     </div>
   </div>
 </template>
@@ -96,7 +119,7 @@ export default {
   color: #283747;
 }
 #HotelAdd span {
-  color: crimson;
+  color: rgb(0, 0, 0);
   font-weight: bold;
 }
 </style>

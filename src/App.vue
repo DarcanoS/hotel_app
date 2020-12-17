@@ -115,6 +115,7 @@ body {
   margin: 0%;
   padding: 0%;
   background: #fdfefe;
+  
 }
 .footer {
   margin: 0;
