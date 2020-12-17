@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <div class="header">
-      <h1>Hotel Price</h1>
+      <h1>Hotel Price {{is_auth}}</h1>
       <nav>
         <button v-on:click="init" v-if="is_auth">Inicio</button>
+        <button v-on:click="iniciar_sesion" v-if="is_auth">Iniciar Sesion</button>
+        <button v-on:click="addHotel" v-if="is_auth">Agregar</button>
         <button v-on:click="getBalance" v-if="is_auth">Estado</button>
         <!-- <button v-if="is_auth">Transacción</button> -->
         <button v-if="is_auth">Cerrar Sesión</button>
@@ -29,9 +31,9 @@ export default {
   },
   methods: {
     init: function () {
-      if (this.$route.name != "hotel") {
+      if (this.$route.name != "home") {
         let hotelname = localStorage.getItem("current_hotelname");
-        this.$router.push({ name: "hotel", params: { hotelname: hotelname } });
+        this.$router.push({ name: "home"});
       }
     },
     getBalance: function () {
@@ -42,12 +44,28 @@ export default {
           params: { hotelname: hotelname }})
       }
     },
+    addHotel: function () {
+      if (this.$route.name != "hotel_add") {
+        let hotelname = localStorage.getItem("current_hotelname");
+        this.$router.push({
+          name: "hotel_add"})
+      }
+    },
+    iniciar_sesion: function () {
+      localStorage.setItem("isAuth", false);
+      if (this.$route.name != "hotel_login") {
+        let hotelname = localStorage.getItem("current_hotelname");
+        this.$router.push({
+          name: "hotel_login"})
+      }
+    },
   },
   beforeCreate: function () {
-    localStorage.setItem("current_hotelname", "Caminos");
+    // localStorage.setItem("current_hotelname", "El lago");
     localStorage.setItem("isAuth", true);
 
-    this.$router.push({name:"hotel",params:{hotelname:'Caminos'}})
+    // this.$router.push({name:"hotel",params:{hotelname:'Caminos'}})
+    this.$router.push({name:"home"})
   },
 };
 </script>
