@@ -9,14 +9,10 @@ import axios from "axios";
 export default {
   name: "Home",
   data: function () {
-    return {
-
-    };
+    return {};
   },
 
-  created: function () {
-
-  },
+  created: function () {},
 };
 </script>
 

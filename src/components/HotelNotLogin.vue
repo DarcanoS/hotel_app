@@ -9,9 +9,7 @@ import axios from "axios";
 export default {
   name: "HotelNotLogin",
   data: function () {
-    return {
-
-    };
+    return {};
   },
 
   created: function () {

@@ -4,7 +4,9 @@
       <h1>Hotel Price</h1>
       <nav>
         <button v-on:click="init" v-if="is_auth">Inicio</button>
-        <button v-on:click="iniciar_sesion" v-if="is_auth">Iniciar Sesion</button>
+        <button v-on:click="iniciar_sesion" v-if="is_auth">
+          Iniciar Sesion
+        </button>
         <button v-on:click="addHotel" v-if="is_auth">Agregar</button>
         <button v-on:click="getBalance" v-if="is_auth">Estado</button>
         <button v-on:click="cerrar_sesion">Cerrar Sesión</button>
@@ -32,37 +34,43 @@ export default {
     init: function () {
       if (this.$route.name != "home") {
         let hotelname = localStorage.getItem("current_hotelname");
-        this.$router.push({ name: "home"});
+        this.$router.push({ name: "home" });
       }
     },
     getBalance: function () {
-      if (this.$route.name != "hotel_description" &&  localStorage.getItem("current_hotelname") != "") {
+      if (
+        this.$route.name != "hotel_description" &&
+        localStorage.getItem("current_hotelname") != ""
+      ) {
         let hotelname = localStorage.getItem("current_hotelname");
         this.$router.push({
           name: "hotel_description",
-          params: { hotelname: hotelname }})
+          params: { hotelname: hotelname },
+        });
       }
-      if(localStorage.getItem("current_hotelname") == ""){
-        this.$router.push({name: "hotel_not_login"})
+      if (localStorage.getItem("current_hotelname") == "") {
+        this.$router.push({ name: "hotel_not_login" });
       }
     },
     addHotel: function () {
       if (this.$route.name != "hotel_add") {
         let hotelname = localStorage.getItem("current_hotelname");
         this.$router.push({
-          name: "hotel_add"})
+          name: "hotel_add",
+        });
       }
     },
     iniciar_sesion: function () {
       if (this.$route.name != "hotel_login") {
         let hotelname = localStorage.getItem("current_hotelname");
         this.$router.push({
-          name: "hotel_login"})
+          name: "hotel_login",
+        });
       }
     },
     cerrar_sesion: function () {
-      if(localStorage.getItem("current_hotelname") != ""){
-        this.$router.push({name:"hotel_login_close"})
+      if (localStorage.getItem("current_hotelname") != "") {
+        this.$router.push({ name: "hotel_login_close" });
         localStorage.setItem("current_hotelname", "");
       }
     },
@@ -71,7 +79,7 @@ export default {
     localStorage.setItem("isAuth", true);
     localStorage.setItem("current_hotelname", "");
 
-    this.$router.push({name:"home"})
+    this.$router.push({ name: "home" });
   },
 };
 </script>
@@ -102,14 +110,14 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-size: 20px;
+  font-size: 15px;
 }
 .header nav button {
   color: #e5e7e9;
   background: #283747;
   border: 1px solid #e5e7e9;
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 10px 15px;
 }
 .header nav button:hover {
   color: #283747;
