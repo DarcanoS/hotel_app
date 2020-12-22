@@ -1,27 +1,29 @@
 <template>
-  <div id="HotelClose" >
-    <div>
-      <h2>¿Que desea hacer?</h2>
-    </div>
-    <div >
-      <!-- <button type="submit">Ingresar</button> -->
-      <button
-        type="submit"
-        class="btn btn-outline-primary"
-        v-on:click="delete_hotel"
-      >
-        Eliminar
-      </button>
-      <button
-        type="submit"
-        class="btn btn-outline-primary"
-        v-on:click="close_hotel"
-      >
-        Cerrar Sesion
-      </button>
-    </div>
-    <div>
-      <h2>{{ salida }}</h2>
+  <div id="HotelClose">
+    <div align="center" >
+      <div>
+        <h2>¿Que desea hacer?</h2>
+      </div>
+      <div>
+        <!-- <button type="submit">Ingresar</button> -->
+        <button
+          type="submit"
+          class="btn btn-outline-primary"
+          v-on:click="delete_hotel"
+        >
+          Eliminar
+        </button>
+        <button
+          type="submit"
+          class="btn btn-outline-primary"
+          v-on:click="close_hotel"
+        >
+          Cerrar Sesion
+        </button>
+      </div>
+      <div>
+        <h2>{{ salida }}</h2>
+      </div>
     </div>
   </div>
 </template>
