@@ -9,7 +9,7 @@
         </button>
         <button v-on:click="addHotel" v-if="is_auth">Agregar</button>
         <button v-on:click="getBalance" v-if="is_auth">Estado</button>
-        <button v-on:click="cerrar_sesion">Cerrar Sesión</button>
+        <button v-on:click="cerrar_sesion">Cerrar/Eliminar</button>
       </nav>
     </div>
     <div class="main-component">
@@ -71,7 +71,7 @@ export default {
     cerrar_sesion: function () {
       if (localStorage.getItem("current_hotelname") != "") {
         this.$router.push({ name: "hotel_login_close" });
-        localStorage.setItem("current_hotelname", "");
+        // localStorage.setItem("current_hotelname", "");
       }
     },
   },
